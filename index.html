@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Device API</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script>
+        
+        </script>
+    </head>
+    <body>
+
+        <div id="header" class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">Device API Test Case</h1>
+            </header>
+        </div>
+
+        <div id="main"  class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header>
+                        <h1>Playing Around with Device APIs</h1>
+                        <p>I first learned about the device APIs back in February when Tim Wright wrote, <a href="http://alistapart.com/article/environmental-design-with-the-device-api" target="_blank">Environmental Design with the Device API</a>. Ever since then I've been wanting to learn more and play around a bit with them. Unfortunately not all of the proposed features have been implemented and on top of that it looks like Firefox OS and Firefox for Android are the only ones to have begun implementation. This is understandable since at the time of this writing the device APIs are still a W3C draft.</p>
+                        <p>Below I've listed the working group that is responsible for creating the client-side APIs as well as the few APIs I've chosen to try. The dashboard on this page will display the results.</p>
+                        <p>For more information on the working group, the APIs showcased here and the source code, please see the links at the bottom of this page.</p>
+                    </header>
+                    <section>
+                    <h2>Device APIs Working Group</h2>
+                        <p>The mission of the Device APIs Working Group is to create client-side APIs that enable the development of Web Applications that interact with device hardware, services and applications such as the camera, microphone, system sensors, native address books, calendars and native messaging applications.</p>
+                   </section>
+                    <section>
+                        <h3>Network API</h3>
+                        <p>The main use case of the Network Information API is to allow applications to be gentle with the user's bandwidth when they know it is rare or expensive. Even if there are not many applications that do this currently, this specification offers the the tools needed to enable this, allowing it to become more common.</p>
+						<p>A few hypothetical examples would be:</p>
+						<ul>
+							<li>An image viewer showing very low resolution thumbnails when the user has a low bandwidth or a metered connection.</li>
+							<li>A video game loading low textures when the user has a low bandwidth or a metered connection.</li>
+							<li>An email client downloading only headers or even asking the user to download headers when he/she has a low bandwidth or a metered connection.</li>
+							<li>Any app trying to aggressively cache any downloaded asset when the user has a low bandwidth or a metered connection.</li>
+						</ul>
+                    </section>
+                    <section>
+                        <h3>Light API</h3>
+                        <p>Ambient Light Events make the web application capable to sense the environment around the user and may allow it to take action in the change of light intensity level.</p>
+                        <p>When the light sensor of the device detects the light change, browser get notifies, it fires a <em>DeviceLightEvent</em> event that gives information about the exact light intensity outside the device.</p>
+						<p>The DeviceLightEvent provides a value attribute with light intensity in lux which is generally treated as given below.</p>
+						<ul>
+							<li>10 ~ 50 lux : Dim Evironment</li>
+							<li>100 ~ 1000 lux : Normal</li>
+							<li>> 10000 lux : Bright</li>
+						</ul>
+                    </section>
+                    <section>
+                        <h3>Battery API</h3>
+                        <p>The Battery Status API, more often referred to as the Battery API, provides information about the system's battery charge level and lets you be notified by events that are sent when the battery level changes. This can be used to adjust your app's resource usage to reduce battery drain when the battery is low, or to save changes before the battery runs out in order to prevent data loss.</p>
+                    </section>
+                    
+                </article>
+
+                <aside id="aside">
+                    <h3>Dashboard</h3>
+                    <p>Light Meter</p>
+                    <meter id="luxmeter" max="6000"></meter> <span id="lx">Lux: 0</span>
+                    <p>Battery Meter</p>
+                    <meter id="dbameter" low="30" high="70" max="100"></meter> <span id="dba">Battery: 0%</span>
+                    <p>Network Meter</p>
+                    <meter id="netmeter" low="30" high="173" max="500"></meter> <span id="net">Speed: 0 MB/s</span>
+                    <span id="slowed"></span>
+                </aside>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div id="footer" class="footer-container">
+            <footer class="wrapper">
+				<nav>
+					<ul>
+						<li><a href="http://www.w3.org/2009/dap/">Device APIs Working Group</a></li>
+						<li><a href="http://www.w3.org/TR/netinfo-api/">Network Information API</a></li>
+						<li><a href="https://dvcs.w3.org/hg/dap/raw-file/default/sensor-api/Overview.html">Sensor Information API</a></li>
+						<li><a href="http://www.jeffdevelops.com">JeffDevelops.com</a></li>
+					</ul>
+                </nav>
+            </footer>
+        </div>
+
+        <script src="js/main.js"></script>
+    </body>
+</html>
